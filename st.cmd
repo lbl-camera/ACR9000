@@ -1,4 +1,4 @@
-#!/usr/local/epics/base/modules/soft/synApps/support/motor/modules/motorParker/iocs/parkerIOC/bin/linux-x86_64/parker
+#!/opt/epics/modules/motor/modules/motorParker/iocs/parkerIOC/bin/linux-x86_64/parker
 #
 #
 #errlogInit(5000)
