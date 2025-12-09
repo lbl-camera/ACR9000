@@ -1,0 +1,9 @@
+epicsEnvSet("IOC","iocACR9000")
+epicsEnvSet("TOP_IOC",".")
+epicsEnvSet("IOC_DIR","/usr/local/epics/base/modules/soft/synApps/support/motor/modules/motorParker/iocs/parkerIOC")
+epicsEnvSet("MOTOR","/usr/local/epics/base/modules/soft/synApps/support/motor")
+epicsEnvSet("ASYN","/usr/local/epics/base/modules/soft/synApps/support/asyn")
+epicsEnvSet("EPICS_BASE","/usr/local/epics/base")
+epicsEnvSet("SUPPORT","/usr/local/epics/base/modules/soft/synApps/support")
+#
+#epicsEnvSet("EPICS_CA_ADDR_LIST","192.168.10.255")

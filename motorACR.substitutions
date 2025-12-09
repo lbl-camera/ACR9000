@@ -1,0 +1,154 @@
+file "$(TOP_IOC)/asyn_parker_motor.db"
+{
+pattern
+{P,     N,  M,        DTYP,         PORT,  ADDR,  DESC,          EGU,  DIR,  VELO,  VBAS,  ACCL,  BDST,   BVEL,  BACC,   MRES,   ERES,      PREC,  DHLM,   DLLM,  INIT}
+{IOC:,  1,  "m$(N)",  "asynMotor",  ACR1,  0,     "motor $(N)",  mm,   Pos,  0.5,   0.5,    0.1,    0,     0.1,     0.1, 0.0001,  0.00005,     7,    10000,   -10000, ""}
+{IOC:,  2,  "m$(N)",  "asynMotor",  ACR1,  1,     "motor $(N)",  mm,   Pos,  0.5,   0.5,    0.1,    0,     0.1,     0.1, 0.0001,  0.00005,     7,    10000,   -10000, ""}
+{IOC:,  3,  "m$(N)",  "asynMotor",  ACR1,  2,     "motor $(N)",  mm,   Pos,  0.5,   0.5,    0.1,    0,     0.1,     0.1, 0.0001,  0.00005,     7,    10000,   -10000, ""}
+{IOC:,  4,  "m$(N)",  "asynMotor",  ACR1,  3,     "motor $(N)",  mm,   Pos,  0.5,   0.5,    0.1,    0,     0.1,     0.1, 0.0001,  0.00005,     7,    10000,   -10000, ""}
+
+}
+
+file "$(IOC_DIR)/db/ACRAux.template"
+{
+pattern
+{P,       R,  PORT,  ADDR}
+{IOC:,  m1:,  ACR1,  0}
+}
+
+file "$(IOC_DIR)/db/ACRAuxLi.template"
+{
+pattern
+{P,          R, PORT, SCAN}
+{IOC:ACR1:, li, ACR1, "I/O Intr"}
+
+}
+
+file "$(IOC_DIR)/db/ACRAuxRead.template"
+{
+pattern
+{P,          R,   PORT, SCAN}
+{IOC:ACR1:, Read, ACR1, "1 second"}
+
+}
+
+file "$(IOC_DIR)/db/ACRAuxBi.template"
+{
+pattern
+{P,          R,     PORT,       MASK,       SCAN}
+{IOC:ACR1:,  bi0,   ACR1, 0x00000001, "I/O Intr"}
+{IOC:ACR1:,  bi1,   ACR1, 0x00000002, "I/O Intr"}
+{IOC:ACR1:,  bi2,   ACR1, 0x00000004, "I/O Intr"}
+{IOC:ACR1:,  bi3,   ACR1, 0x00000008, "I/O Intr"}
+{IOC:ACR1:,  bi4,   ACR1, 0x00000010, "I/O Intr"}
+{IOC:ACR1:,  bi5,   ACR1, 0x00000020, "I/O Intr"}
+{IOC:ACR1:,  bi6,   ACR1, 0x00000040, "I/O Intr"}
+{IOC:ACR1:,  bi7,   ACR1, 0x00000080, "I/O Intr"}
+{IOC:ACR1:,  bi8,   ACR1, 0x00000100, "I/O Intr"}
+{IOC:ACR1:,  bi9,   ACR1, 0x00000200, "I/O Intr"}
+{IOC:ACR1:,  bi10,  ACR1, 0x00000400, "I/O Intr"}
+{IOC:ACR1:,  bi11,  ACR1, 0x00000800, "I/O Intr"}
+{IOC:ACR1:,  bi12,  ACR1, 0x00001000, "I/O Intr"}
+{IOC:ACR1:,  bi13,  ACR1, 0x00002000, "I/O Intr"}
+{IOC:ACR1:,  bi14,  ACR1, 0x00004000, "I/O Intr"}
+{IOC:ACR1:,  bi15,  ACR1, 0x00008000, "I/O Intr"}
+{IOC:ACR1:,  bi16,  ACR1, 0x00010000, "I/O Intr"}
+{IOC:ACR1:,  bi17,  ACR1, 0x00020000, "I/O Intr"}
+{IOC:ACR1:,  bi18,  ACR1, 0x00040000, "I/O Intr"}
+{IOC:ACR1:,  bi19,  ACR1, 0x00080000, "I/O Intr"}
+{IOC:ACR1:,  bi20,  ACR1, 0x00100000, "I/O Intr"}
+{IOC:ACR1:,  bi21,  ACR1, 0x00200000, "I/O Intr"}
+{IOC:ACR1:,  bi22,  ACR1, 0x00400000, "I/O Intr"}
+{IOC:ACR1:,  bi23,  ACR1, 0x00800000, "I/O Intr"}
+{IOC:ACR1:,  bi24,  ACR1, 0x01000000, "I/O Intr"}
+{IOC:ACR1:,  bi25,  ACR1, 0x02000000, "I/O Intr"}
+{IOC:ACR1:,  bi26,  ACR1, 0x04000000, "I/O Intr"}
+{IOC:ACR1:,  bi27,  ACR1, 0x08000000, "I/O Intr"}
+{IOC:ACR1:,  bi28,  ACR1, 0x10000000, "I/O Intr"}
+{IOC:ACR1:,  bi29,  ACR1, 0x20000000, "I/O Intr"}
+{IOC:ACR1:,  bi30,  ACR1, 0x40000000, "I/O Intr"}
+{IOC:ACR1:,  bi31,  ACR1, 0x80000000, "I/O Intr"}
+#
+
+}
+
+file "$(IOC_DIR)/db/ACRAuxBo.template"
+{
+pattern
+{P,          R,     PORT,       MASK}
+{IOC:ACR1:,  bo0,   ACR1, 0x00000001}
+{IOC:ACR1:,  bo1,   ACR1, 0x00000002}
+{IOC:ACR1:,  bo2,   ACR1, 0x00000004}
+{IOC:ACR1:,  bo3,   ACR1, 0x00000008}
+{IOC:ACR1:,  bo4,   ACR1, 0x00000010}
+{IOC:ACR1:,  bo5,   ACR1, 0x00000020}
+{IOC:ACR1:,  bo6,   ACR1, 0x00000040}
+{IOC:ACR1:,  bo7,   ACR1, 0x00000080}
+{IOC:ACR1:,  bo8,   ACR1, 0x00000100}
+{IOC:ACR1:,  bo9,   ACR1, 0x00000200}
+{IOC:ACR1:,  bo10,  ACR1, 0x00000400}
+{IOC:ACR1:,  bo11,  ACR1, 0x00000800}
+{IOC:ACR1:,  bo12,  ACR1, 0x00001000}
+{IOC:ACR1:,  bo13,  ACR1, 0x00002000}
+{IOC:ACR1:,  bo14,  ACR1, 0x00004000}
+{IOC:ACR1:,  bo15,  ACR1, 0x00008000}
+{IOC:ACR1:,  bo16,  ACR1, 0x00010000}
+{IOC:ACR1:,  bo17,  ACR1, 0x00020000}
+{IOC:ACR1:,  bo18,  ACR1, 0x00040000}
+{IOC:ACR1:,  bo19,  ACR1, 0x00080000}
+{IOC:ACR1:,  bo20,  ACR1, 0x00100000}
+{IOC:ACR1:,  bo21,  ACR1, 0x00200000}
+{IOC:ACR1:,  bo22,  ACR1, 0x00400000}
+{IOC:ACR1:,  bo23,  ACR1, 0x00800000}
+{IOC:ACR1:,  bo24,  ACR1, 0x01000000}
+{IOC:ACR1:,  bo25,  ACR1, 0x02000000}
+{IOC:ACR1:,  bo26,  ACR1, 0x04000000}
+{IOC:ACR1:,  bo27,  ACR1, 0x08000000}
+{IOC:ACR1:,  bo28,  ACR1, 0x10000000}
+{IOC:ACR1:,  bo29,  ACR1, 0x20000000}
+{IOC:ACR1:,  bo30,  ACR1, 0x40000000}
+{IOC:ACR1:,  bo31,  ACR1, 0x80000000}
+#
+
+}
+
+file "$(IOC_DIR)/db/ACRAuxBoRBV.template"
+{
+pattern
+{P,          R,        PORT,       MASK,       SCAN}
+{IOC:ACR1:,  boRBV0,   ACR1, 0x00000001, "I/O Intr"}
+{IOC:ACR1:,  boRBV1,   ACR1, 0x00000002, "I/O Intr"}
+{IOC:ACR1:,  boRBV2,   ACR1, 0x00000004, "I/O Intr"}
+{IOC:ACR1:,  boRBV3,   ACR1, 0x00000008, "I/O Intr"}
+{IOC:ACR1:,  boRBV4,   ACR1, 0x00000010, "I/O Intr"}
+{IOC:ACR1:,  boRBV5,   ACR1, 0x00000020, "I/O Intr"}
+{IOC:ACR1:,  boRBV6,   ACR1, 0x00000040, "I/O Intr"}
+{IOC:ACR1:,  boRBV7,   ACR1, 0x00000080, "I/O Intr"}
+{IOC:ACR1:,  boRBV8,   ACR1, 0x00000100, "I/O Intr"}
+{IOC:ACR1:,  boRBV9,   ACR1, 0x00000200, "I/O Intr"}
+{IOC:ACR1:,  boRBV10,  ACR1, 0x00000400, "I/O Intr"}
+{IOC:ACR1:,  boRBV11,  ACR1, 0x00000800, "I/O Intr"}
+{IOC:ACR1:,  boRBV12,  ACR1, 0x00001000, "I/O Intr"}
+{IOC:ACR1:,  boRBV13,  ACR1, 0x00002000, "I/O Intr"}
+{IOC:ACR1:,  boRBV14,  ACR1, 0x00004000, "I/O Intr"}
+{IOC:ACR1:,  boRBV15,  ACR1, 0x00008000, "I/O Intr"}
+{IOC:ACR1:,  boRBV16,  ACR1, 0x00010000, "I/O Intr"}
+{IOC:ACR1:,  boRBV17,  ACR1, 0x00020000, "I/O Intr"}
+{IOC:ACR1:,  boRBV18,  ACR1, 0x00040000, "I/O Intr"}
+{IOC:ACR1:,  boRBV19,  ACR1, 0x00080000, "I/O Intr"}
+{IOC:ACR1:,  boRBV20,  ACR1, 0x00100000, "I/O Intr"}
+{IOC:ACR1:,  boRBV21,  ACR1, 0x00200000, "I/O Intr"}
+{IOC:ACR1:,  boRBV22,  ACR1, 0x00400000, "I/O Intr"}
+{IOC:ACR1:,  boRBV23,  ACR1, 0x00800000, "I/O Intr"}
+{IOC:ACR1:,  boRBV24,  ACR1, 0x01000000, "I/O Intr"}
+{IOC:ACR1:,  boRBV25,  ACR1, 0x02000000, "I/O Intr"}
+{IOC:ACR1:,  boRBV26,  ACR1, 0x04000000, "I/O Intr"}
+{IOC:ACR1:,  boRBV27,  ACR1, 0x08000000, "I/O Intr"}
+{IOC:ACR1:,  boRBV28,  ACR1, 0x10000000, "I/O Intr"}
+{IOC:ACR1:,  boRBV29,  ACR1, 0x20000000, "I/O Intr"}
+{IOC:ACR1:,  boRBV30,  ACR1, 0x40000000, "I/O Intr"}
+{IOC:ACR1:,  boRBV31,  ACR1, 0x80000000, "I/O Intr"}
+#
+
+}
+
