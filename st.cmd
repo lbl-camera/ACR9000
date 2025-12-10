@@ -84,5 +84,4 @@ iocInit
 # Tweak step size
 #dbpf("IOC:m1.TWV", "10")
 
-
-
+dbl > database.txt
